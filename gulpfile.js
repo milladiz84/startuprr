@@ -16,10 +16,14 @@ const browserSync = require('browser-sync').create();
 });
 */
 
+var onError = function(err) {
+        notify.onError({message: "Failed\n<%= error.message %>", sound: true})(err);
+        this.emit('end');
+}
 
 gulp.task('js', async function() {
 	return gulp.src('js/*.js')
-		.pipe(plumber())
+//		.pipe(plumber({errorHandler: onError}))
 		.pipe(rigger())
         .pipe(gulp.dest('app/js/'))
         .pipe(uglify())

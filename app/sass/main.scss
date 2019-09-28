@@ -1,12 +1,223 @@
-@import "../../bootstrap/scss/bootstrap-reboot";
-@import "../../bootstrap/scss/utilities";
-@import "../../bootstrap/scss/grid";
-@import "../../bootstrap/scss/nav";
-@import "../../bootstrap/scss/buttons";
-@import "../../bootstrap/scss/alert";
+@import '../../bootstrap/scss/bootstrap-reboot';
+@import '../../bootstrap/scss/utilities';
+@import '../../bootstrap/scss/grid';
+@import '../../bootstrap/scss/navbar';
+@import '../../bootstrap/scss/buttons';
+@import '../../bootstrap/scss/alert';
+@import '../../bootstrap/scss/tooltip';
+@import '../../bootstrap/scss/transitions';
+@import '../../bootstrap/scss/popover';
 
+@mixin clearfix {
+  content: '';
+  clear: both;
+  display: block;
+}
 
+@mixin text-center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+@mixin h1 {
+  color: $gray-800;
+  font-family: 'Raleway', sans-serif;
+  font-size: 26px;
+  font-weight: $headings-font-weight2;
+  text-transform: uppercase;
+}
+@mixin heading2 {
+  color: $gray-500;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+@mixin h1-greensea {
+  @include h1;
+  color: $greensea;
+  }
+@mixin font-greensea {
+  @include font;
+}
 
+@mixin bg-link {
+  background: $greensea;
+  padding: 15px;
+  border-radius: 3px;
+}
+@mixin heading {
+  font-size: 16px;
+  color: $gray-400;
+}
+body {
+  font-family: 'Raleway', sans-serif;
+}
+header {
+  align-items: center;
+  border-bottom: 2px  solid $gray-200;
+  display: flex;
+  height: 100px;
+}
+a{
+  text-decoration: none;
+  outline: none;
+}
 
+h1 {
+  @include h1;
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
 
+  &::before {
+    content: '';
+    background: url('../img/sprite.png') no-repeat -1px 0;
+    width: 459px;
+    height: 15px;
+    top: 10px;
+    left: -8px;
+    position: absolute;
+  }
+
+  &::after {
+    content: '';
+    top: 10px;
+    right: -8px;
+    background: url('../img/sprite.png') no-repeat 0 -36px;
+    width: 459px;
+    height: 15px;
+    position: absolute;
+  }
+}
+
+.heading-greensea {
+  @include h1-greensea;
+}
+
+.navbar {
+  li {
+    font-family: 'Raleway', sans-serif 800;
+    font-size: 13px;
+    font-weight: 800;
+    margin-right: 43px;
+    text-transform: uppercase;
+
+  &:nth-child(2) {
+      @include bg-link;
+    }
+  }
+
+  a { 
+    &:hover {
+      @include bg-link;
+    }
+
+    &:active {
+      @include bg-link;
+    }
+
+  }
+}
+.navbar-nav {
+  align-items: baseline;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+  li {
+
+    &:last-child {
+      margin-right: 0;
+  }
+  
+}
+    a {
+    color: $gray-300;
+  }
+
+}
+.weoffer {
+  height: 182px;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+.weoffer_text {
+  @include heading;
+  text-align: center;
+}
+.test {
+  margin-top: -40px;
+}
+
+.text-center {
+  @include text-center;
+}
+
+.ico-items {
+
+}
+.ico {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+}
+.item1, .item2, .item3 {
+  &::before {
+    position: absolute;
+    content:'';
+  }
+}
+
+.item1 {
+  background: $gray-800;
+  margin-bottom: 31px;
+
+&::before {
+    background: url('../img/sprite.png') no-repeat -115px -61px;
+    width: 38px;
+    height: 33px;
+    top: 37px;
+    left: 32px;
+  }    
+}
+.item2 {
+  background: $greensea;
+  margin-bottom: 31px;
+&::before {
+    background: url('../img/sprite.png') no-repeat -27px -61px;
+    width: 31px;
+    height: 37px;
+    top: 30px;
+    left: 33px;
+  }    
+}
+.item3 {
+  background: $gray-800;
+  margin-bottom: 31px;
+
+&::before {
+    background: url('../img/sprite.png') no-repeat -68px -61px;
+    width: 38px;
+    height: 37px;
+    top: 33px;
+    left: 31px;
+  }   
+}
+
+.ico-item-title {
+  @include heading2;
+}
+
+.ico-item-text {
+  font-size: 14px;
+  margin-top: 10px;
+}
+.btn-primary {
+  background: $greensea;
+}
